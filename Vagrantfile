@@ -1,6 +1,6 @@
 Vagrant::Config.run do |config|
   config.vm.box       = 'brotodevbox'
-  config.vm.box_url   = 'http://files.vagrantup.com/precise32.box'
+  config.vm.box_url   = 'http://files.vagrantup.com/precise64.box'
   config.vm.host_name = 'brotodevbox'
   config.vm.network :hostonly, "10.10.10.10"
 
