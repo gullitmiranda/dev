@@ -34,7 +34,6 @@ class install_mysql {
     config_hash => { 'root_password' => '' }
   }
 
-
   package { 'libmysqlclient15-dev':
     ensure => installed
   }
@@ -74,13 +73,12 @@ class install_nokogiri_dependencies {
 class { 'install_nokogiri_dependencies': }
 
 class install_rbenv {
-
   rbenv::install { 'vagrant':
     group => $user,
     home => $home
   }
 
-  rbenv::compile { '1.9.3-p194':
+  rbenv::compile { '1.9.3-p362':
     user => $user,
     home => $home
   }
@@ -88,18 +86,15 @@ class install_rbenv {
 class { 'install_rbenv': }
 
 class setup_env {
-  exec { "echo 'gem: --no-ri --no-rdoc' > /home/vagrant/.gemrc":
+  exec { "cd /tmp && git clone git://github.com/brennovich/dotfiles.git && cd /tmp/dotfiles && chmod +x install.sh && ./install.sh":
     user => $user,
-    unless => "ls .gemrc",
     path => "${home}/bin:${home}/.rbenv/shims:/bin:/usr/bin"
   }
-  # TODO dotfiles
-  class { 'ohmyzsh': }
 }
 class { 'setup_env': }
 
 class { 'nodejs':
-  version => '0.8.8',
+  version => '0.8.17',
 }
 
 class { 'memcached': }
