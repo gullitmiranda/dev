@@ -13,7 +13,7 @@ This project automates the setup of a development environment for Ruby on Rails.
 
 Building the virtual machine is this easy:
 
-    host $ git clone https://github.com/brennovich/brotodevbox.git
+    host $ git clone --recursive https://github.com/brennovich/brotodevbox.git
     host $ cd brotodevbox
     host $ vagrant up
 
