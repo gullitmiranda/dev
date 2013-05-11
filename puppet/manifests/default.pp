@@ -78,7 +78,7 @@ class install_rbenv {
     home => $home
   }
 
-  rbenv::compile { '1.9.3-p362':
+  rbenv::compile { '2.0.0-p0':
     user => $user,
     home => $home
   }
@@ -94,7 +94,7 @@ class setup_env {
 class { 'setup_env': }
 
 class { 'nodejs':
-  version => '0.8.17',
+  version => '0.10.5',
 }
 
 class { 'memcached': }
