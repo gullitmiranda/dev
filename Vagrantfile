@@ -1,7 +1,8 @@
 Vagrant::Config.run do |config|
-  config.vm.box       = 'brotodevbox-precise-amd64'
+  config.vm.box       = 'precise64'
   config.vm.box_url   = 'http://files.vagrantup.com/precise64.box'
   config.vm.host_name = 'brotodevbox'
+
   config.vm.network :hostonly, '10.10.10.10'
 
   config.vm.forward_port 3000, 3000
