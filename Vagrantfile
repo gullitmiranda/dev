@@ -8,9 +8,9 @@ Vagrant::Config.run do |config|
   config.vm.forward_port 3000, 3000
   config.vm.forward_port 4321, 4321
 
-  config.vm.share_folder 'code', '/home/vagrant/code', '~/code', :nfs => true
+  config.vm.share_folder 'code', '/home/vagrant/code', '~/code'
 
-  config.vm.provision :puppet,
-    :manifests_path => 'puppet/manifests',
-    :module_path    => 'puppet/modules'
+  config.vm.provision :chef_solo do |chef|
+    chef.cookbooks_path = 'cookbooks'
+  end
 end
