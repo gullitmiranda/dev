@@ -50,7 +50,7 @@ The recommended workflow is
 Vagrant mounts that very directory as _/vagrant_ within the virtual machine:
 
     vagrant@brotodevbox:~$ ls /vagrant
-    puppet  rails  README.md  Vagrantfile
+    cookbooks README.md  Vagrantfile
 
 so we are ready to go to edit in the host, and test in the virtual machine.
 
