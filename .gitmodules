@@ -1,6 +1,6 @@
 [submodule "cookbooks/postgresql"]
 	path = cookbooks/postgresql
-	url = git@github.com:opscode-cookbooks/postgresql.git
+	url = git@github.com:brennovich/postgresql.git
 [submodule "cookbooks/apt"]
 	path = cookbooks/apt
 	url = git@github.com:opscode-cookbooks/apt.git
