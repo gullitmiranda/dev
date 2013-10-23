@@ -42,8 +42,14 @@ bash 'install dotfiles' do
   not_if { ::File.exists?('/home/vagrant/.vimrc') }
 end
 
-rbenv_ruby '2.0.0-p247'
-
-rbenv_gem 'bundler' do
-  rbenv_ruby '2.0.0-p247'
-end
+node.default['rbenv']['user_installs'] = [
+  { 'user'    => 'vagrant',
+    'rubies'  => ['2.0.0-p247'],
+    'global'  => '2.0.0-p247',
+    'gems'    => {
+      '2.0.0-p247'    => [
+        { 'name'    => 'bundler' }
+      ]
+    }
+  }
+]
