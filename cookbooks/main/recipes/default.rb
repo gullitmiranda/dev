@@ -1,9 +1,7 @@
 include_recipe 'apt'
 include_recipe 'openssl'
-include_recipe 'set_locale'
-
-# Ensure locales
-ENV['LANGUAGE'] = ENV['LANG'] = ENV['LC_ALL'] = 'en_US.UTF-8'
+include_recipe 'rbenv::default'
+include_recipe 'rbenv::ruby_build'
 
 # Postgres configuration
 node.set['postgresql']['password']['postgres'] = 'password'
@@ -21,10 +19,31 @@ include_recipe 'postgresql::server'
 # Packages
 %w(
   build-essential git-core subversion curl autoconf zlib1g-dev libssl-dev
-  libreadline6-dev libxml2-dev libyaml-dev libapreq2-dev
+  libreadline6-dev libxml2-dev libyaml-dev libapreq2-dev vim tmux
   imagemagick libmagickwand-dev libxslt1-dev libxml2-dev sphinxsearch
 ).each do |package_name|
   package package_name do
     action :install
   end
+end
+
+# Dotfiles
+bash 'clone dotfiles repo' do
+  user 'vagrant'
+  cwd '/home/vagrant/code'
+  code 'git clone https://github.com/brennovich/dotfiles.git /home/vagrant/code/dotfiles'
+  not_if { ::File.exists?('/home/vagrant/code') }
+end
+
+bash 'install dotfiles' do
+  user 'vagrant'
+  cwd '/home/vagrant/code/dotfiles'
+  code 'rm /home/vagrant/.bashrc && HOME=/home/vagrant sh /home/vagrant/code/dotfiles/install.sh'
+  not_if { ::File.exists?('/home/vagrant/.vimrc') }
+end
+
+rbenv_ruby '2.0.0-p247'
+
+rbenv_gem 'bundler' do
+  rbenv_ruby '2.0.0-p247'
 end
