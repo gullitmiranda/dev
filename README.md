@@ -22,23 +22,22 @@ That's it.
 If the base box is not present that command fetches it first. The setup itself takes about 3 minutes in my MacBook Air. After the installation has finished, you can access the virtual machine with
 
     host $ vagrant ssh
-    Welcome to Ubuntu 12.04 LTS (GNU/Linux 3.2.0-23-generic-pae i686)
+    Welcome to Ubuntu 12.04.3 LTS (GNU/Linux 3.2.0-23-generic x86_64)
     ...
-    vagrant@rails-dev-box:~$
+    vagrant@brotodevbox:~$
 
 Port 3000 in the host computer is forwarded to port 3000 in the virtual machine. Thus, applications running in the virtual machine can be accessed via localhost:3000 in the host computer.
 
 ## What's In The Box
 
-* Git
-* Ruby 1.9.3 [Ubuntu package]
-* rbenv
-* Bundler
-* SQLite3, MySQL, and Postgresql
-* System dependencies for nokogiri, sqlite3, mysql, mysql2, and pg
-* therubyracer
-* Memcached
-* [dotfiles](https://github.com/brennovich/dotfiles)
+- Git
+- Ruby 1.9.3 [Ubuntu package]
+- rbenv
+- ruby\_build
+- Postgresql
+- System dependencies for nokogiri, ruby, rmagick, sqlite3, mysql, mysql2, and pg
+- Memcached
+- [dotfiles](https://github.com/brennovich/dotfiles)
 
 ## Recommended Workflow
 
@@ -47,12 +46,10 @@ The recommended workflow is
 * edit in the host computer and
 * test within the virtual machine.
 
-Vagrant mounts that very directory as _/vagrant_ within the virtual machine:
+Vagrant is configured to mount your ~/code folder within the virtual machine:
 
-    vagrant@brotodevbox:~$ ls /vagrant
-    cookbooks README.md  Vagrantfile
-
-so we are ready to go to edit in the host, and test in the virtual machine.
+    vagrant@brotodevbox:~$ ls ~/
+    code
 
 This workflow is convenient because in the host computer one normally has his editor of choice fine-tuned, Git configured, and SSH keys in place.
 
