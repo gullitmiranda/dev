@@ -9,4 +9,4 @@
 	url = git@github.com:opscode-cookbooks/openssl.git
 [submodule "cookbooks/rbenv"]
 	path = cookbooks/rbenv
-	url = git@github.com:RiotGames/rbenv-cookbook.git
+	url = git@github.com:fnichol/chef-rbenv.git
