@@ -1,7 +1,5 @@
 include_recipe 'apt'
 include_recipe 'openssl'
-include_recipe 'rbenv::default'
-include_recipe 'rbenv::ruby_build'
 
 # Postgres configuration
 node.set['postgresql']['password']['postgres'] = 'password'
@@ -15,6 +13,17 @@ node.set['postgresql']['pg_hba'] = [
 ]
 
 include_recipe 'postgresql::server'
+
+node.default['rbenv']['user_installs'] = [ { 'user' => 'vagrant' } ]
+
+include_recipe 'rbenv::user_install'
+include_recipe 'ruby_build'
+
+ruby_build_ruby '2.0.0-p247' do
+  prefix_path '/home/vagrant/.rbenv/versions/2.0.0-p247'
+  user 'vagrant'
+  group 'vagrant'
+end
 
 # Packages
 %w(
@@ -42,14 +51,10 @@ bash 'install dotfiles' do
   not_if { ::File.exists?('/home/vagrant/.vimrc') }
 end
 
-node.default['rbenv']['user_installs'] = [
-  { 'user'    => 'vagrant',
-    'rubies'  => ['2.0.0-p247'],
-    'global'  => '2.0.0-p247',
-    'gems'    => {
-      '2.0.0-p247'    => [
-        { 'name'    => 'bundler' }
-      ]
-    }
-  }
-]
+bash 'setup neobundle' do
+  user 'vagrant'
+  cwd '/home/vagrant/'
+  code 'git clone git://github.com/Shougo/neobundle.vim /home/vagrant/.vim/bundle/neobundle.vim'
+  not_if { ::File.exists?('/home/vagrant/.vim/bundle/neobundle.vim') }
+end
+
