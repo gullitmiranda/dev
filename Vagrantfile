@@ -2,7 +2,7 @@ VAGRANTFILE_API_VERSION = '2'
 SYNCED_FOLDER = 'code'
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
-  config.vm.box = 'precise64'
+  config.vm.box = 'saucy64_vmware_fusion'
   config.vm.host_name = 'brotodevbox'
 
   config.vm.network :private_network, ip: '192.168.33.10'
