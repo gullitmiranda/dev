@@ -16,3 +16,6 @@
 [submodule "cookbooks/heroku-toolbelt"]
 	path = cookbooks/heroku-toolbelt
 	url = git@github.com:jimeh/chef-heroku-toolbelt.git
+[submodule "cookbooks/mysql"]
+	path = cookbooks/mysql
+	url = git@github.com:opscode-cookbooks/mysql.git

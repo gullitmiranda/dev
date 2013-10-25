@@ -3,7 +3,7 @@ include_recipe 'openssl'
 
 node.set['platform'] = 'ubuntu'
 
-# Postgres configuration
+# Postgres
 node.set['postgresql']['password']['postgres'] = 'password'
 node.set['postgresql']['pg_hba'] = [
   {
@@ -14,13 +14,27 @@ node.set['postgresql']['pg_hba'] = [
   }
 ]
 
-# rbenv configuration
+# Mysql
+node.set['mysql'] = {
+  server_root_password: 'password',
+  server_repl_password: 'password',
+  server_debian_password: 'password',
+  allow_remote_root: true,
+
+  client: {
+    packages: ['libmysqlclient-dev']
+  }
+}
+
+# rbenv
 node.default['rbenv']['user_installs'] = [ { 'user' => 'vagrant' } ]
 
-# Heroku toolbelt configuration
+# Heroku Toolbelt
 node.set['heroku-toolbelt']['standalone'] = false
 
 include_recipe 'postgresql::server'
+include_recipe 'mysql::server'
+include_recipe 'mysql::client'
 include_recipe 'rbenv::user_install'
 include_recipe 'ruby_build'
 include_recipe 'heroku-toolbelt'
