@@ -39,7 +39,7 @@ node.set['mysql'] = {
 node.set['rvm']['user_installs'] = [
   { user: 'vagrant',
     default_ruby: '2.0.0',
-    rubies: ['2.0.0', '1.9.3', '1.8.7', 'jruby', 'rbx']
+    rubies: ['2.0.0', '1.9.3', 'jruby']
   }
 ]
 
@@ -61,6 +61,7 @@ include_recipe 'elasticsearch'
 include_recipe 'postgresql::server'
 include_recipe 'mysql::server'
 include_recipe 'mysql::client'
+include_recipe 'rvm::vagrant'
 include_recipe 'rvm::user_install'
 include_recipe 'heroku-toolbelt'
 
@@ -69,7 +70,7 @@ include_recipe 'heroku-toolbelt'
   build-essential git-core subversion curl autoconf zlib1g-dev libssl-dev
   libreadline6-dev libxml2-dev libyaml-dev libapreq2-dev vim tmux memcached
   imagemagick libmagickwand-dev libxslt1-dev libxml2-dev sphinxsearch
-  libsqlite3-dev
+  libsqlite3-dev htop
 ).each do |package_name|
   package package_name do
     action :install
@@ -77,9 +78,18 @@ include_recipe 'heroku-toolbelt'
 end
 
 # Dotfiles
-bash 'clone dotfiles repo' do
-  user 'vagrant'
-  cwd '/home/vagrant'
-  code 'sh -c "`curl -fsSL https://raw.github.com/skwp/dotfiles/master/install.sh`"'
-  not_if { ::File.exists?('/home/vagrant/.yadr') }
+git "/home/vagrant/.yadr" do
+  repository "https://github.com/akitaonrails/dotfiles.git"
+  reference "master"
+  action :checkout
+end
+
+bash "install yadr" do
+  cwd "/home/vagrant/.yadr"
+  user "vagrant"
+  group "vagrant"
+  code <<-EOH
+    rvm use 2.0.0
+    rake install
+    EOH
 end
