@@ -13,3 +13,6 @@
 [submodule "cookbooks/ruby_build"]
 	path = cookbooks/ruby_build
 	url = git@github.com:fnichol/chef-ruby_build.git
+[submodule "cookbooks/heroku-toolbelt"]
+	path = cookbooks/heroku-toolbelt
+	url = git@github.com:jimeh/chef-heroku-toolbelt.git

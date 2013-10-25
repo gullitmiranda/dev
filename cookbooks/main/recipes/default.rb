@@ -1,6 +1,8 @@
 include_recipe 'apt'
 include_recipe 'openssl'
 
+node.set['platform'] = 'ubuntu'
+
 # Postgres configuration
 node.set['postgresql']['password']['postgres'] = 'password'
 node.set['postgresql']['pg_hba'] = [
@@ -15,9 +17,13 @@ node.set['postgresql']['pg_hba'] = [
 # rbenv configuration
 node.default['rbenv']['user_installs'] = [ { 'user' => 'vagrant' } ]
 
+# Heroku toolbelt configuration
+node.set['heroku-toolbelt']['standalone'] = false
+
 include_recipe 'postgresql::server'
 include_recipe 'rbenv::user_install'
 include_recipe 'ruby_build'
+include_recipe 'heroku-toolbelt'
 
 # Packages
 %w(
