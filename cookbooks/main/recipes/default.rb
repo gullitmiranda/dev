@@ -30,6 +30,7 @@ include_recipe 'heroku-toolbelt'
   build-essential git-core subversion curl autoconf zlib1g-dev libssl-dev
   libreadline6-dev libxml2-dev libyaml-dev libapreq2-dev vim tmux memcached
   imagemagick libmagickwand-dev libxslt1-dev libxml2-dev sphinxsearch
+  libsqlite3-dev
 ).each do |package_name|
   package package_name do
     action :install
