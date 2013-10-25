@@ -99,12 +99,3 @@ git "/home/vagrant/.yadr" do
   action :checkout
 end
 
-bash "install yadr" do
-  cwd "/home/vagrant/.yadr"
-  user "vagrant"
-  group "vagrant"
-  code <<-EOH
-    rvm use 2.0.0
-    rake install
-    EOH
-end
