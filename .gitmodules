@@ -19,9 +19,6 @@
 [submodule "cookbooks/mysql"]
 	path = cookbooks/mysql
 	url = git@github.com:opscode-cookbooks/mysql.git
-[submodule "cookbooks/chef-rvm"]
-	path = cookbooks/chef-rvm
-	url = https://github.com/fnichol/chef-rvm.git
 [submodule "cookbooks/java"]
 	path = cookbooks/java
 	url = https://github.com/opscode-cookbooks/java.git
