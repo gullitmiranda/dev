@@ -18,6 +18,10 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     vb.customize ['modifyvm', :id, '--memory', '1024']
   end
 
+  config.vm.provider :vmware_fusion do |v|
+    v.vmx["memsize"] = "1024"
+  end
+
   config.vm.provision :chef_solo do |chef|
     chef.cookbooks_path = 'cookbooks'
     chef.add_recipe 'main'
