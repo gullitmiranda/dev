@@ -38,10 +38,13 @@ node.set['mysql'] = {
 # rvm
 node.set['rvm']['user_installs'] = [
   { user: 'vagrant',
-    default_ruby: '2.0.0',
-    rubies: ['2.0.0', '1.9.3', 'jruby']
+    default_ruby: 'ruby-2.0.0-p247',
+    rubies: ['ruby-2.0.0-p247', 'ruby-1.9.3-p448', 'jruby-1.7.6']
   }
 ]
+node.set['rvm']['vagrant'] = {
+  system_chef_solo: '/usr/local/ruby/bin/chef-solo'
+}
 
 # java
 node.set['java'] = {
