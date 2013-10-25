@@ -28,3 +28,6 @@
 [submodule "cookbooks/ark"]
 	path = cookbooks/ark
 	url = https://github.com/bryanwb/chef-ark.git
+[submodule "cookbooks/rvm"]
+	path = cookbooks/rvm
+	url = https://github.com/fnichol/chef-rvm.git
