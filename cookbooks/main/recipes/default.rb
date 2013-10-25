@@ -36,8 +36,13 @@ node.set['mysql'] = {
   }
 }
 
-# rbenv
-node.default['rbenv']['user_installs'] = [ { 'user' => 'vagrant' } ]
+# rvm
+node.set['rvm']['user_installs'] = [
+  { user: 'vagrant',
+    default_ruby: '2.0.0',
+    rubies: ['2.0.0', '1.9.3', '1.8.7', 'jruby', 'rbx']
+  }
+]
 
 # Heroku Toolbelt
 node.set['heroku-toolbelt']['standalone'] = false
@@ -45,8 +50,7 @@ node.set['heroku-toolbelt']['standalone'] = false
 include_recipe 'postgresql::server'
 include_recipe 'mysql::server'
 include_recipe 'mysql::client'
-include_recipe 'rbenv::user_install'
-include_recipe 'ruby_build'
+include_recipe 'rvm::user_install'
 include_recipe 'heroku-toolbelt'
 
 # Packages
