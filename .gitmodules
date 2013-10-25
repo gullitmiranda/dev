@@ -34,3 +34,6 @@
 [submodule "cookbooks/redisio"]
 	path = cookbooks/redisio
 	url = https://github.com/brianbianco/redisio.git
+[submodule "cookbooks/mongodb"]
+	path = cookbooks/mongodb
+	url = https://github.com/edelight/chef-mongodb.git
