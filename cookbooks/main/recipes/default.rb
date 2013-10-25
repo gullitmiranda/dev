@@ -20,6 +20,7 @@ node.set['mysql'] = {
   server_repl_password: 'password',
   server_debian_password: 'password',
   allow_remote_root: true,
+  bind_address: '*',
 
   client: {
     packages: ['libmysqlclient-dev']
