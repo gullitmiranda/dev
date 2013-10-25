@@ -25,3 +25,9 @@
 [submodule "cookbooks/java"]
 	path = cookbooks/java
 	url = https://github.com/opscode-cookbooks/java.git
+[submodule "cookbooks/elasticsearch"]
+	path = cookbooks/elasticsearch
+	url = https://github.com/elasticsearch/cookbook-elasticsearch.git
+[submodule "cookbooks/ark"]
+	path = cookbooks/ark
+	url = https://github.com/bryanwb/chef-ark.git
