@@ -37,3 +37,6 @@
 [submodule "cookbooks/mongodb"]
 	path = cookbooks/mongodb
 	url = https://github.com/edelight/chef-mongodb.git
+[submodule "cookbooks/ulimit"]
+	path = cookbooks/ulimit
+	url = https://github.com/bmhatfield/chef-ulimit.git
