@@ -55,6 +55,11 @@ node.set['java'] = {
 # Heroku Toolbelt
 node.set['heroku-toolbelt']['standalone'] = false
 
+# Mongo DB
+node.set[:mongodb] = {
+  version: "2.4.0"
+}
+
 include_recipe 'ark'
 include_recipe 'java'
 include_recipe 'elasticsearch'
@@ -63,7 +68,8 @@ include_recipe 'mysql::server'
 include_recipe 'mysql::client'
 include_recipe 'redisio::install'
 include_recipe 'redisio::enable'
-include_recipe 'mongodb'
+include_recipe 'mongodb::10gen_repo'
+include_recipe 'mongodb::default'
 include_recipe 'rvm::vagrant'
 include_recipe 'rvm::user_install'
 include_recipe 'heroku-toolbelt'
