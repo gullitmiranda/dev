@@ -60,6 +60,9 @@ node.set[:mongodb] = {
   version: "2.4.0"
 }
 
+# Python
+node.set["python"]["install_method"] = "package"
+
 include_recipe 'ark'
 include_recipe 'java'
 include_recipe 'elasticsearch'
@@ -70,6 +73,9 @@ include_recipe 'redisio::install'
 include_recipe 'redisio::enable'
 include_recipe 'mongodb::10gen_repo'
 include_recipe 'mongodb::default'
+include_recipe 'python'
+include_recipe 'python::pip'
+include_recipe 'python::virtualenv'
 include_recipe 'rvm::vagrant'
 include_recipe 'rvm::user_install'
 include_recipe 'heroku-toolbelt'

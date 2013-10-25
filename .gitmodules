@@ -40,3 +40,6 @@
 [submodule "cookbooks/ulimit"]
 	path = cookbooks/ulimit
 	url = https://github.com/bmhatfield/chef-ulimit.git
+[submodule "cookbooks/python"]
+	path = cookbooks/python
+	url = https://github.com/opscode-cookbooks/python.git
