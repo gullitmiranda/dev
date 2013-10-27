@@ -37,13 +37,13 @@ node.set['mysql'] = {
 
 # rvm
 node.set['rvm']['user_installs'] = [
-  { user: 'vagrant',
-    default_ruby: 'ruby-2.0.0-p247',
-    rubies: ['ruby-2.0.0-p247', 'ruby-1.9.3-p448', 'jruby-1.7.6']
+  { 'user' => 'vagrant',
+    'default_ruby' => 'ruby-2.0.0-p247',
+    'rubies' => ['ruby-1.9.3-p448', 'jruby-1.7.6']
   }
 ]
 node.set['rvm']['vagrant'] = {
-  system_chef_solo: '/usr/local/ruby/bin/chef-solo'
+  'system_chef_solo' => '/usr/local/bin/chef-solo'
 }
 
 # java
@@ -67,6 +67,7 @@ node.set[:mongodb] = {
 node.set["python"]["install_method"] = "package"
 
 include_recipe 'ark'
+include_recipe 'build-essential'
 include_recipe 'java'
 include_recipe 'elasticsearch'
 include_recipe 'postgresql::server'
@@ -79,13 +80,16 @@ include_recipe 'mongodb::default'
 include_recipe 'python'
 include_recipe 'python::pip'
 include_recipe 'python::virtualenv'
+include_recipe 'nodejs'
+include_recipe 'nodejs::npm'
 include_recipe 'rvm::vagrant'
 include_recipe 'rvm::user_install'
+include_recipe 'rvm::user'
 include_recipe 'heroku-toolbelt'
 
 # Packages
 %w(
-  build-essential git-core subversion curl autoconf zlib1g-dev libssl-dev
+  git-core subversion curl autoconf zlib1g-dev libssl-dev
   libreadline6-dev libxml2-dev libyaml-dev libapreq2-dev vim tmux memcached
   imagemagick libmagickwand-dev libxslt1-dev libxml2-dev sphinxsearch
   libsqlite3-dev htop

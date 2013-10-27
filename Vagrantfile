@@ -1,5 +1,5 @@
 VAGRANTFILE_API_VERSION = '2'
-SYNCED_FOLDER = 'code'
+SYNCED_FOLDER = ENV['SYNCED_FOLDER'] || "~/Sites"
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.box = 'precise64_vmware'
@@ -12,7 +12,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.network :forwarded_port, guest: 3000, host: 3000
   config.vm.network :forwarded_port, guest: 4321, host: 4321
 
-  config.vm.synced_folder "~/Sites", "/vagrant"
+  config.vm.synced_folder SYNCED_FOLDER, "/vagrant"
 
   config.vm.provider :virtualbox do |vb|
     vb.customize ['modifyvm', :id, '--memory', '1024']

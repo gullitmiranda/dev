@@ -7,13 +7,15 @@ This project automates the setup of a development environment for Ruby on Rails.
 ## Requirements
 
 * [VirtualBox](https://www.virtualbox.org)
+* [VMWare Fusion (optional)](http://www.vmware.com/products/fusion/)
+* [VMWare Provider (optional)](http://www.vagrantup.com/vmware)
 * [Vagrant](http://vagrantup.com)
 
 ## How To Build The Virtual Machine
 
 Building the virtual machine is this easy:
 
-    host $ git clone --recursive https://github.com/brennovich/brotodevbox.git
+    host $ git clone --recursive https://github.com/akitaonrails/brotodevbox.git
     host $ cd brotodevbox
     host $ vagrant up
 
@@ -31,27 +33,33 @@ Port 3000 in the host computer is forwarded to port 3000 in the virtual machine.
 ## What's In The Box
 
 - Git
-- Ruby 1.9.3 [Ubuntu package]
-- rbenv
-- ruby\_build
+- RVM with Ruby 2, Ruby 1.9, JRuby 1.7.6
 - Postgresql
+- Mysql
+- Redis
+- MongoDB
+- Python (with PIP and virtualenv)
+- NodeJS
+- Oracle Java 7
+- Elasticsearch
 - System dependencies for nokogiri, ruby, rmagick, sqlite3, mysql, mysql2, and pg
 - Memcached
-- [dotfiles](https://github.com/brennovich/dotfiles)
+- [dotfiles](https://github.com/akitaonrails/dotfiles)
 
-## Recommended Workflow
+## Dotfiles
 
-The recommended workflow is
+It installs the awesome [YADR](https://github.com/skwp/dotfiles) dotfiles. After first provisioning, login and run:
 
-* edit in the host computer and
-* test within the virtual machine.
+    cd .yadr
+    rake install
 
-Vagrant is configured to mount your ~/code folder within the virtual machine:
+And to upgrade run:
 
-    vagrant@brotodevbox:~$ ls ~/
-    code
+    cd .yadr
+    git pull
+    rake install
 
-This workflow is convenient because in the host computer one normally has his editor of choice fine-tuned, Git configured, and SSH keys in place.
+Vagrant is configured to mount your ~/Sites folder within the virtual machine. Change the SYNCED_FOLDER environment variable to choose another folder.
 
 ## Virtual Machine Management
 
