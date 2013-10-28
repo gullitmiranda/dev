@@ -11,6 +11,11 @@ This project automates the setup of a development environment for Ruby on Rails.
 * [VMWare Provider (optional)](http://www.vagrantup.com/vmware)
 * [Vagrant](http://vagrantup.com)
 
+Install Vagrant plugins to make life easier:
+
+    vagrant plugin install vbguest
+    vagrant plugin install vmware-fusion # (if you bought the license)
+
 ## How To Build The Virtual Machine
 
 Building the virtual machine is this easy:
