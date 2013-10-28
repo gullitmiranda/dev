@@ -5,6 +5,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.box = 'precise64_vmware'
   config.vm.box_url = 'http://files.vagrantup.com/precise64_vmware.box'
   config.vm.host_name = 'devenv'
+  # config.cache.auto_detect = true
 
   config.vm.network :private_network, ip: '192.168.33.10'
 
@@ -12,7 +13,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.network :forwarded_port, guest: 3000, host: 3000
   config.vm.network :forwarded_port, guest: 4321, host: 4321
 
-  config.vm.synced_folder SYNCED_FOLDER, "/vagrant"
+  config.vm.synced_folder SYNCED_FOLDER, "/vagrant", :nfs => true
 
   config.vm.provider :virtualbox do |vb|
     vb.customize ['modifyvm', :id, '--memory', '1024']

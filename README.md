@@ -14,6 +14,7 @@ This project automates the setup of a development environment for Ruby on Rails.
 Install Vagrant plugins to make life easier:
 
     vagrant plugin install vbguest
+    vagrant plugin install vagrant-cachier # (uncomment in Vagrantfile to enable)
     vagrant plugin install vmware-fusion # (if you bought the license)
 
 ## How To Build The Virtual Machine
