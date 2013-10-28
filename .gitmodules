@@ -52,3 +52,6 @@
 [submodule "cookbooks/chef_gem"]
 	path = cookbooks/chef_gem
 	url = https://github.com/hw-cookbooks/chef_gem.git
+[submodule "cookbooks/sudo"]
+	path = cookbooks/sudo
+	url = https://github.com/opscode-cookbooks/sudo.git
