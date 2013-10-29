@@ -110,6 +110,8 @@ include_recipe 'rvm::user'
 
 # Dotfiles
 git "/home/vagrant/.yadr" do
+  user "vagrant"
+  group "vagrant"
   repository "https://github.com/akitaonrails/dotfiles.git"
   reference "master"
   action :checkout
