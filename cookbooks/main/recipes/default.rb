@@ -13,7 +13,8 @@ node.set["authorization"]["sudo"] = {
 node.set['postgresql'] = {
   version: "9.3",
   contrib: {
-    packages: "postgresql-contrib-9.3"
+    packages: "postgresql-contrib-9.3",
+    extensions: ['hstore']
   },
   password: {
     postgres: ''
@@ -92,14 +93,10 @@ include_recipe 'python::virtualenv'
 include_recipe 'nodejs'
 include_recipe 'nodejs::npm'
 include_recipe 'heroku-toolbelt'
+include_recipe 'phantomjs::default'
 
 # Packages
-%w(
-  git-core subversion curl automake autoconf zlib1g zlib1g-dev libssl-dev libreadline6
-  libreadline6-dev libxml2-dev libyaml-dev libapreq2-dev vim tmux memcached
-  imagemagick libmagickwand-dev libxslt1-dev libxml2-dev sphinxsearch
-  libsqlite3-dev htop ncurses-dev libtool ssl-cert pkg-config libgdbm-dev libffi-dev
-).each do |package_name|
+%w(git-core subversion curl htop).each do |package_name|
   package package_name do
     action :install
   end
