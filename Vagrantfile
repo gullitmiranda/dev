@@ -5,7 +5,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.box = 'precise64_vmware'
   config.vm.box_url = 'http://files.vagrantup.com/precise64_vmware.box'
   config.vm.host_name = 'devenv'
-  # config.cache.auto_detect = true
+  config.cache.auto_detect = true
+  config.cache.enable_nfs = true
 
   config.vm.network :private_network, ip: '192.168.33.10'
 
