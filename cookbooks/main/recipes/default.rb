@@ -94,7 +94,7 @@ include_recipe 'heroku-toolbelt'
 include_recipe 'phantomjs::default'
 
 # Packages
-%w(git-core git-flow curl htop imagemagick build-essential ruby1.9.3).each do |package_name|
+%w(build-essential curl vim git-core git-flow htop imagemagick ruby1.9.3).each do |package_name|
   package package_name do
     action :install
   end
