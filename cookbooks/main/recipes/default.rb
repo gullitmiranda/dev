@@ -104,11 +104,8 @@ include_recipe 'rvm::vagrant'
 include_recipe 'rvm::user'
 
 # Dotfiles
-git "/home/vagrant/.dotfiles" do
-  user "vagrant"
-  group "vagrant"
-  repository "https://github.com/gullitmiranda/dotfiles.git"
-  reference "master"
-  action :checkout
+bash "install_dotfiles" do
+   code <<-EOH
+     sh -c "`curl -fsSL https://raw.github.com/gullitmiranda/dotfiles/master/install.sh`"
+     EOH
 end
-
