@@ -45,7 +45,7 @@ node.set['mysql'] = {
   :bind_address => '*',
 
   :client => {
-    :packages => ['libmysqlclient-dev']
+    :packages => ['libmysqlclient-dev php5-imagick php5-curl php5-mysql php5-mysqlnd']
   }
 }
 
@@ -78,6 +78,8 @@ include_recipe 'sudo'
 include_recipe 'ark'
 include_recipe 'build-essential'
 include_recipe 'apache2'
+include_recipe 'apache2::mod_php5'
+include_recipe 'apache2::mod_rewrite'
 include_recipe 'elasticsearch'
 include_recipe 'postgresql::server'
 include_recipe 'mysql::server'
