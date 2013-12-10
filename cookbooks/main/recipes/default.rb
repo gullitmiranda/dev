@@ -54,7 +54,7 @@ node.set['rvm']['installer_url'] = "https://raw.github.com/wayneeseguin/rvm/mast
 node.set['rvm']['user_installs'] = [ {
   :user => 'vagrant',
   :install_rubies => true,
-  :default_ruby => 'ruby-2.0.0-p247'
+  :default_ruby => 'ruby-2.0.0-p353'
 } ]
 node.set['rvm']['vagrant'] = {
   :system_chef_solo => '/usr/local/bin/chef-solo'
