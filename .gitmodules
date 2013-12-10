@@ -1,3 +1,6 @@
+[submodule "cookbooks/apache2"]
+	path = cookbooks/apache2
+	url = git@github.com:opscode-cookbooks/apache2.git
 [submodule "cookbooks/postgresql"]
 	path = cookbooks/postgresql
 	url = git@github.com:brennovich/postgresql.git
@@ -19,9 +22,6 @@
 [submodule "cookbooks/mysql"]
 	path = cookbooks/mysql
 	url = git@github.com:opscode-cookbooks/mysql.git
-[submodule "cookbooks/java"]
-	path = cookbooks/java
-	url = https://github.com/opscode-cookbooks/java.git
 [submodule "cookbooks/elasticsearch"]
 	path = cookbooks/elasticsearch
 	url = https://github.com/elasticsearch/cookbook-elasticsearch.git
@@ -31,9 +31,9 @@
 [submodule "cookbooks/rvm"]
 	path = cookbooks/rvm
 	url = https://github.com/fnichol/chef-rvm.git
-[submodule "cookbooks/redisio"]
-	path = cookbooks/redisio
-	url = https://github.com/brianbianco/redisio.git
+[submodule "cookbooks/redis"]
+	path = cookbooks/redis
+	url = https://github.com/phlipper/chef-redis.git
 [submodule "cookbooks/mongodb"]
 	path = cookbooks/mongodb
 	url = https://github.com/edelight/chef-mongodb.git

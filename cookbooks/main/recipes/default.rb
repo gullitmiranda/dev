@@ -5,63 +5,59 @@ node.set['platform'] = 'ubuntu'
 
 # sudo
 node.set["authorization"]["sudo"] = {
-  users: ["vagrant"],
-  passwordless: true
+  :users => ["vagrant"],
+  :passwordless => true
+}
+
+# Apache
+node.set['apache'] = {
+  :default_site_enabled => true,
+  :log_dir => '/www',
+  :docroot_dir => '/www'
 }
 
 # Postgres
 node.set['postgresql'] = {
-  version: "9.3",
-  contrib: {
-    packages: "postgresql-contrib-9.3",
-    extensions: ['hstore']
+  :version => "9.3",
+  :contrib => {
+    :packages => "postgresql-contrib-9.3",
+    :extensions => ['hstore']
   },
-  password: {
-    postgres: ''
+  :password => {
+    :postgres => ''
   },
-  pg_hba: [
+  :pg_hba => [
     {
-      type: 'local',
-      db: 'all',
-      user: 'postgres',
-      method: 'trust'
+      :type => 'local',
+      :db => 'all',
+      :user => 'postgres',
+      :method => 'trust'
     }
   ]
 }
 
 # Mysql
 node.set['mysql'] = {
-  server_root_password: '',
-  server_repl_password: '',
-  server_debian_password: '',
-  allow_remote_root: true,
-  bind_address: '*',
+  :server_root_password => '',
+  :server_repl_password => '',
+  :server_debian_password => '',
+  :allow_remote_root => true,
+  :bind_address => '*',
 
-  client: {
-    packages: ['libmysqlclient-dev']
+  :client => {
+    :packages => ['libmysqlclient-dev']
   }
 }
 
 # rvm
 node.set['rvm']['installer_url'] = "https://raw.github.com/wayneeseguin/rvm/master/binscripts/rvm-installer"
 node.set['rvm']['user_installs'] = [ {
-  user: 'vagrant',
-  install_rubies: true,
-  default_ruby: 'ruby-2.0.0-p247',
-  rubies: ['ruby-1.9.3-p448', 'jruby-1.7.6']
+  :user => 'vagrant',
+  :install_rubies => true,
+  :default_ruby => 'ruby-2.0.0-p247'
 } ]
-node.set['rvm']['user_install_rubies'] = true
 node.set['rvm']['vagrant'] = {
-  system_chef_solo: '/usr/local/bin/chef-solo'
-}
-
-# java
-node.set['java'] = {
-  install_flavor: "oracle",
-  jdk_version: 7,
-  oracle: {
-    accept_oracle_download_terms: true
-  }
+  :system_chef_solo => '/usr/local/bin/chef-solo'
 }
 
 # Heroku Toolbelt
@@ -69,8 +65,11 @@ node.set['heroku-toolbelt']['standalone'] = false
 
 # Mongo DB
 node.set[:mongodb] = {
-  version: "2.4.0"
+  :version => "2.4.0"
 }
+
+# RedisIO
+node.set['redis']['source']['version'] = "2.8.2"
 
 # Python
 node.set["python"]["install_method"] = "package"
@@ -78,13 +77,12 @@ node.set["python"]["install_method"] = "package"
 include_recipe 'sudo'
 include_recipe 'ark'
 include_recipe 'build-essential'
-include_recipe 'java'
+include_recipe 'apache2'
 include_recipe 'elasticsearch'
 include_recipe 'postgresql::server'
 include_recipe 'mysql::server'
 include_recipe 'mysql::client'
-include_recipe 'redisio::install'
-include_recipe 'redisio::enable'
+include_recipe 'redis'
 include_recipe 'mongodb::10gen_repo'
 include_recipe 'mongodb::default'
 include_recipe 'python'
@@ -96,7 +94,7 @@ include_recipe 'heroku-toolbelt'
 include_recipe 'phantomjs::default'
 
 # Packages
-%w(git-core subversion curl htop).each do |package_name|
+%w(git-core git-flow curl htop imagemagick build-essential ruby1.9.3).each do |package_name|
   package package_name do
     action :install
   end
@@ -106,10 +104,10 @@ include_recipe 'rvm::vagrant'
 include_recipe 'rvm::user'
 
 # Dotfiles
-git "/home/vagrant/.yadr" do
+git "/home/vagrant/.dotfiles" do
   user "vagrant"
   group "vagrant"
-  repository "https://github.com/akitaonrails/dotfiles.git"
+  repository "https://github.com/gullitmiranda/dotfiles.git"
   reference "master"
   action :checkout
 end
