@@ -21,8 +21,8 @@ Install Vagrant plugins to make life easier:
 
 Building the virtual machine is this easy:
 
-    host $ git clone --recursive https://github.com/akitaonrails/brotodevbox.git
-    host $ cd brotodevbox
+    host $ git clone --recursive https://github.com/gullitmiranda/dev.git
+    host $ cd dev
     host $ vagrant up
 
 That's it.
@@ -32,7 +32,7 @@ If the base box is not present that command fetches it first. The setup itself t
     host $ vagrant ssh
     Welcome to Ubuntu 12.04.3 LTS (GNU/Linux 3.2.0-23-generic x86_64)
     ...
-    vagrant@brotodevbox:~$
+    vagrant@requestvm:~$
 
 Port 3000 in the host computer is forwarded to port 3000 in the virtual machine. Thus, applications running in the virtual machine can be accessed via localhost:3000 in the host computer.
 
@@ -46,26 +46,25 @@ Port 3000 in the host computer is forwarded to port 3000 in the virtual machine.
 - MongoDB
 - Python (with PIP and virtualenv)
 - NodeJS
-- Oracle Java 7
 - Elasticsearch
 - System dependencies for nokogiri, ruby, rmagick, sqlite3, mysql, mysql2, and pg
 - Memcached
-- [dotfiles](https://github.com/akitaonrails/dotfiles)
+- [dotfiles](https://github.com/gullitmiranda/dotfiles)
 
 ## Dotfiles
 
-It installs the awesome [YADR](https://github.com/skwp/dotfiles) dotfiles. After first provisioning, login and run:
+It installs the awesome [YADR](https://github.com/gullitmiranda/dotfiles) dotfiles. After first provisioning, login and run:
 
-    cd .yadr
+    cd .dotfiles
     rake install
 
 And to upgrade run:
 
-    cd .yadr
+    cd .dotfiles
     git pull
     rake install
 
-Vagrant is configured to mount your ~/Sites folder within the virtual machine. Change the SYNCED_FOLDER environment variable to choose another folder.
+Vagrant is configured to mount your ~/wwww folder within the virtual machine. Change the SYNCED_FOLDER environment variable to choose another folder.
 
 ## Virtual Machine Management
 
@@ -95,8 +94,4 @@ Finally, to completely wipe the virtual machine from the disk **destroying all i
 
     host $ vagrant destroy # DANGER: all is gone
 
-Please check the [Vagrant documentation](http://vagrantup.com/v1/docs/index.html) for more information on Vagrant.
-
-
-[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/akitaonrails/brotodevbox/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
-
+Please check the [Vagrant documentation](http://docs.vagrantup.com/v2/) for more information on Vagrant.
