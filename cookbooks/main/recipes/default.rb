@@ -45,7 +45,7 @@ node.set['mysql'] = {
   :bind_address => '*',
 
   :client => {
-    :packages => ['libmysqlclient-dev php5-imagick php5-curl php5-mysql php5-mysqlnd']
+    :packages => ['libmysqlclient-dev php5-imagick php5-curl']
   }
 }
 
