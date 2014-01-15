@@ -5,7 +5,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # Box
   config.vm.box = "requestvm"
   # config.vm.box_url = "/home/requestdev/Downloads/precise64.box"
-  # config.vm.box_url = "http://files.vagrantup.com/precise64.box"
+  config.vm.box_url = "http://files.vagrantup.com/precise64.box"
   config.vm.hostname = "requestvm"
   config.cache.auto_detect = true
   config.cache.enable_nfs = true
