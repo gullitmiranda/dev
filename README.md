@@ -49,14 +49,12 @@ Port 3000 in the host computer is forwarded to port 3000 in the virtual machine.
 - Elasticsearch
 - System dependencies for nokogiri, ruby, rmagick, sqlite3, mysql, mysql2, and pg
 - Memcached
-- [dotfiles](https://github.com/gullitmiranda/dotfiles)
 
 ## Dotfiles
 
-It installs the awesome [YADR](https://github.com/gullitmiranda/dotfiles) dotfiles. After first provisioning, login and run:
+It installs the awesome [YADR](https://github.com/gullitmiranda/dotfiles) dotfiles. run:
 
-    cd .dotfiles
-    rake install
+    sh -c "`curl -fsSL https://raw.github.com/gullitmiranda/dotfiles/master/install.sh`"
 
 And to upgrade run:
 
