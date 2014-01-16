@@ -28,13 +28,13 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.network :forwarded_port, guest: 27017, host: 27017   # mongo
 
   config.vm.provider :virtualbox do |vb|
-    vb.customize ["modifyvm", :id, "--memory", "1024"]
+    vb.customize ["modifyvm", :id, "--memory", "512"]
     vb.customize ["modifyvm", :id, "--natdnsproxy1", "off"]
     vb.customize ["modifyvm", :id, "--natdnshostresolver1", "off"]
   end
 
   config.vm.provider :vmware_fusion do |v|
-    v.vmx["memsize"] = "1024"
+    v.vmx["memsize"] = "512"
   end
 
   # Provisions
