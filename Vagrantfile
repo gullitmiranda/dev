@@ -5,7 +5,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # Box
   config.vm.box = "requestvm"
   # config.vm.box_url = "/home/requestdev/Downloads/precise64.box"
-  # config.vm.box_url = "http://files.vagrantup.com/precise64.box"
+  config.vm.box_url = "http://files.vagrantup.com/precise64.box"
   config.vm.hostname = "requestvm"
 
   # Network
@@ -26,15 +26,13 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.network :forwarded_port, guest: 27017, host: 27017   # mongo
 
   config.vm.provider :virtualbox do |vb|
-    # vb.gui = true
-
-    vb.customize ["modifyvm", :id, "--memory", "1024"]
+    vb.customize ["modifyvm", :id, "--memory", "512"]
     vb.customize ["modifyvm", :id, "--natdnsproxy1", "off"]
     vb.customize ["modifyvm", :id, "--natdnshostresolver1", "off"]
   end
 
   config.vm.provider :vmware_fusion do |v|
-    v.vmx["memsize"] = "1024"
+    v.vmx["memsize"] = "512"
   end
 
   # Provisions

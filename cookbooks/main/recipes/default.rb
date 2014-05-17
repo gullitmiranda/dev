@@ -104,9 +104,3 @@ end
 
 include_recipe 'rvm::vagrant'
 include_recipe 'rvm::user'
-
-# Dotfiles
-execute "install_dotfiles" do
-  user "vagrant"
-  command 'sh -c "`curl -fsSL https://raw.github.com/gullitmiranda/dotfiles/master/install.sh`"'
-end
