@@ -1,5 +1,11 @@
+# Shared Folders
 Projects
 www
+mobile
+apaches
+
+
+# Others
 .vagrant/
 *.sublime-*
-apaches
+
