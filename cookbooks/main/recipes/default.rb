@@ -17,15 +17,15 @@ node.set['apache'] = {
 }
 
 # Postgres
-node['postgresql'][:version] = "9.3"
-node['postgresql'][:contrib][:packages] = "postgresql-contrib-9.3"
-node['postgresql'][:contrib][:extensions] = ['hstore']
-node['postgresql'][:password][:postgres] = 'postgres'
-node['postgresql'][:enable_pgdg_apt] = true
-node['postgresql'][:pg_hba] = [{:type => 'local',
-                                :db => 'all',
-                                :user => 'postgres',
-                                :method => 'trust'}]
+# node['postgresql'][:version] = "9.3"
+# node['postgresql'][:contrib][:packages] = "postgresql-contrib-9.3"
+# node['postgresql'][:contrib][:extensions] = ['hstore']
+# node['postgresql'][:password][:postgres] = 'postgres'
+# node['postgresql'][:enable_pgdg_apt] = true
+# node['postgresql'][:pg_hba] = [{:type => 'local',
+#                                 :db => 'all',
+#                                 :user => 'postgres',
+#                                 :method => 'trust'}]
 
 # rvm
 node.set['rvm']['installer_url'] = "https://raw.github.com/wayneeseguin/rvm/master/binscripts/rvm-installer"
@@ -50,7 +50,7 @@ include_recipe 'build-essential'
 include_recipe 'apache2'
 include_recipe 'apache2::mod_php5'
 include_recipe 'apache2::mod_rewrite'
-include_recipe 'postgresql::server'
+# include_recipe 'postgresql::server'
 include_recipe 'python'
 include_recipe 'python::pip'
 include_recipe 'python::virtualenv'
