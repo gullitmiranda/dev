@@ -19,24 +19,12 @@
 [submodule "cookbooks/heroku-toolbelt"]
 	path = cookbooks/heroku-toolbelt
 	url = git@github.com:jimeh/chef-heroku-toolbelt.git
-[submodule "cookbooks/mysql"]
-	path = cookbooks/mysql
-	url = git@github.com:opscode-cookbooks/mysql.git
-[submodule "cookbooks/elasticsearch"]
-	path = cookbooks/elasticsearch
-	url = https://github.com/elasticsearch/cookbook-elasticsearch.git
 [submodule "cookbooks/ark"]
 	path = cookbooks/ark
 	url = https://github.com/bryanwb/chef-ark.git
 [submodule "cookbooks/rvm"]
 	path = cookbooks/rvm
 	url = https://github.com/fnichol/chef-rvm.git
-[submodule "cookbooks/redis"]
-	path = cookbooks/redis
-	url = https://github.com/phlipper/chef-redis.git
-[submodule "cookbooks/mongodb"]
-	path = cookbooks/mongodb
-	url = https://github.com/edelight/chef-mongodb.git
 [submodule "cookbooks/ulimit"]
 	path = cookbooks/ulimit
 	url = https://github.com/bmhatfield/chef-ulimit.git
