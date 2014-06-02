@@ -14,18 +14,19 @@ This project automates the setup of a development environment for Ruby on Rails.
 Install Vagrant plugins to make life easier:
 
     vagrant plugin install vagrant-vbguest
-    vagrant plugin install vagrant-cachier # (uncomment in Vagrantfile to enable)
     vagrant plugin install vmware-fusion # (if you bought the license)
 
 ## How To Build The Virtual Machine
 
 Building the virtual machine is this easy:
 
-    host $ git clone --recursive https://github.com/gullitmiranda/dev.git
+    host $ git clone --recursive https://github.com/gullitmiranda/dev.git ~/dev
     host $ cd dev
     host $ vagrant up
 
 That's it.
+
+NOTE: the folder `./ www` is the default folder for php projects and is mounted inside the VM with the path `/www`.
 
 If the base box is not present that command fetches it first. The setup itself takes about 3 minutes in my MacBook Air. After the installation has finished, you can access the virtual machine with
 

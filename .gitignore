@@ -1,9 +1,9 @@
 # Shared Folders
 Projects
-www
 mobile
 apaches
 
+/www/*
 
 # Others
 .vagrant/
