@@ -44,12 +44,13 @@ Port 3000 in the host computer is forwarded to port 3000 in the virtual machine.
 - Postgresql
 - Mysql
 - Redis
-- MongoDB
 - Python (with PIP and virtualenv)
 - NodeJS
 - Elasticsearch
 - System dependencies for nokogiri, ruby, rmagick, sqlite3, mysql, mysql2, and pg
 - Memcached
+
+[Install MongoDB](http://docs.mongodb.org/manual/tutorial/install-mongodb-on-ubuntu/#install-mongodb)
 
 ## Dotfiles
 
